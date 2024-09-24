@@ -10,12 +10,12 @@ public class ParkingSpace {
 
     // Member function 1: Check availability
     public boolean isAvailable() {
-        return isAvailable;
+        return this.isAvailable;  // Using 'this' to refer to the instance variable
     }
 
     // Member function 2: Assign a vehicle to the parking space
     public void assignVehicle(Vehicle vehicle) {
-        this.currentVehicle = vehicle;
+        this.currentVehicle = vehicle;  // Using 'this' to avoid confusion with method parameter
         this.isAvailable = false;
     }
 
@@ -27,6 +27,7 @@ public class ParkingSpace {
 
     // Member function 4: Get current vehicle
     public Vehicle getCurrentVehicle() {
-        return currentVehicle;
+        return this.currentVehicle;  // Using 'this' to explicitly refer to the instance variable
     }
 }
+
