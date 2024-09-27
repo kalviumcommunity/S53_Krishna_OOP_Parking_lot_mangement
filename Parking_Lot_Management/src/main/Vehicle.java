@@ -22,7 +22,7 @@ public class Vehicle {
         this.licensePlate = licensePlate;
     }
 
-    // Static function to get the total number of vehicles created
+    // Static member function to get the total number of vehicles created
     public static int getTotalVehicles() {
         return totalVehicles;
     }

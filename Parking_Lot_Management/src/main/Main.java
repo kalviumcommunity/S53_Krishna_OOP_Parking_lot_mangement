@@ -15,7 +15,7 @@ public class Main {
             }
         }
 
-        // Display the static counts
+        // Display the static counts using static member functions
         System.out.println("Total vehicles created: " + Vehicle.getTotalVehicles());
         System.out.println("Parking spaces in use: " + ParkingSpace.getParkingSpacesInUse());
 
@@ -27,7 +27,7 @@ public class Main {
         space = null;  // This allows the Garbage Collector to free the memory eventually
         vehicle = null;  // Same here for the Vehicle object
 
-        // Display the updated parking space count
+        // Display the updated parking space count using static member functions
         System.out.println("Parking spaces in use after freeing: " + ParkingSpace.getParkingSpacesInUse());
     }
 }
