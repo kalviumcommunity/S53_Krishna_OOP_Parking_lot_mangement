@@ -13,6 +13,10 @@ public class Main {
             System.out.println("Vehicle " + vehicle.getLicensePlate() + " is assigned to the parking space.");
         }
 
+        // Display the static counts
+        System.out.println("Total vehicles created: " + Vehicle.getTotalVehicles());
+        System.out.println("Parking spaces in use: " + ParkingSpace.getParkingSpacesInUse());
+
         // Free the parking space
         space.freeSpace();
         System.out.println("Parking space is now available.");
@@ -20,5 +24,8 @@ public class Main {
         // In Java, no need for manual deletion as Garbage Collector handles it
         space = null;  // This allows the Garbage Collector to free the memory eventually
         vehicle = null;  // Same here for the Vehicle object
+
+        // Display the updated parking space count
+        System.out.println("Parking spaces in use after freeing: " + ParkingSpace.getParkingSpacesInUse());
     }
 }
