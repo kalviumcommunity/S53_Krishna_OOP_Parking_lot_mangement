@@ -2,32 +2,35 @@ package Parking_Lot_Management.src.main;
 
 public class ParkingSpace {
     private boolean isAvailable;
-    // Static variable to track the number of parking spaces in use
+    private Vehicle currentVehicle;
     private static int parkingSpacesInUse = 0;
 
-    // Constructor
     public ParkingSpace() {
         this.isAvailable = true;
     }
 
-    // Member function 1: Check availability
     public boolean isAvailable() {
         return this.isAvailable;
     }
 
-    // Member function 2: Assign a vehicle to the parking space
     public void assignVehicle(Vehicle vehicle) {
-        this.isAvailable = false;
-        parkingSpacesInUse++; // Increment static counter
+        if (isAvailable) {
+            this.currentVehicle = vehicle;
+            this.isAvailable = false;
+            parkingSpacesInUse++;
+        }
     }
 
-    // Member function 3: Free the parking space
     public void freeSpace() {
+        this.currentVehicle = null;
         this.isAvailable = true;
-        parkingSpacesInUse--; // Decrement static counter
+        parkingSpacesInUse--;
     }
 
-    // Static member function to get the number of parking spaces in use
+    public Vehicle getCurrentVehicle() {
+        return this.currentVehicle;
+    }
+
     public static int getParkingSpacesInUse() {
         return parkingSpacesInUse;
     }
