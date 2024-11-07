@@ -6,14 +6,16 @@ public class Main {
         ParkingSpace space = new ParkingSpace();
         Vehicle vehicle = new Vehicle("ABC123");
 
-        // Check if parking space is available
-        if (space.isAvailable()) {
-            // Assign the vehicle to the parking space
-            space.assignVehicle(vehicle);
-            System.out.println("Vehicle " + vehicle.getLicensePlate() + " is assigned to the parking space.");
+        // Assign vehicle2 to the next available parking space
+        for (ParkingSpace space : parkingSpaces) {
+            if (space.isAvailable()) {
+                space.assignVehicle(vehicle2);
+                System.out.println("Vehicle " + vehicle2.getLicensePlate() + " is assigned to a parking space.");
+                break;
+            }
         }
 
-        // Display the static counts
+        // Display the static counts using static member functions
         System.out.println("Total vehicles created: " + Vehicle.getTotalVehicles());
         System.out.println("Parking spaces in use: " + ParkingSpace.getParkingSpacesInUse());
 
@@ -25,7 +27,7 @@ public class Main {
         space = null;  // This allows the Garbage Collector to free the memory eventually
         vehicle = null;  // Same here for the Vehicle object
 
-        // Display the updated parking space count
+        // Display the updated parking space count using static member functions
         System.out.println("Parking spaces in use after freeing: " + ParkingSpace.getParkingSpacesInUse());
     }
 }
