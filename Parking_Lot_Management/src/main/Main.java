@@ -2,30 +2,32 @@ package Parking_Lot_Management.src.main;
 
 public class Main {
     public static void main(String[] args) {
-        // Dynamic memory allocation using 'new'
-        ParkingSpace space = new ParkingSpace();
-        Vehicle vehicle = new Vehicle("ABC123");
+        // Create a parking lot with 3 spaces
+        ParkingLot parkingLot = new ParkingLot(3);
 
-        // Check if parking space is available
-        if (space.isAvailable()) {
-            // Assign the vehicle to the parking space
-            space.assignVehicle(vehicle);
-            System.out.println("Vehicle " + vehicle.getLicensePlate() + " is assigned to the parking space.");
-        }
+        // Create some vehicles
+        Vehicle vehicle1 = new Vehicle("ABC123");
+        Vehicle vehicle2 = new Vehicle("XYZ789");
+        Vehicle vehicle3 = new Vehicle("LMN456");
+        Vehicle vehicle4 = new Vehicle("DEF321");
 
-        // Display the static counts
-        System.out.println("Total vehicles created: " + Vehicle.getTotalVehicles());
-        System.out.println("Parking spaces in use: " + ParkingSpace.getParkingSpacesInUse());
+        // Park vehicles
+        parkingLot.parkVehicle(vehicle1);
+        parkingLot.parkVehicle(vehicle2);
+        parkingLot.parkVehicle(vehicle3);
+        // Attempt to park a fourth vehicle
+        parkingLot.parkVehicle(vehicle4);  // Expected to fail as there are only 3 spaces
 
-        // Free the parking space
-        space.freeSpace();
-        System.out.println("Parking space is now available.");
+        // Display parking lot status
+        parkingLot.displayStatus();
 
-        // In Java, no need for manual deletion as Garbage Collector handles it
-        space = null;  // This allows the Garbage Collector to free the memory eventually
-        vehicle = null;  // Same here for the Vehicle object
+        // Free up a parking space
+        parkingLot.freeParkingSpace(2);
 
-        // Display the updated parking space count
-        System.out.println("Parking spaces in use after freeing: " + ParkingSpace.getParkingSpacesInUse());
+        // Attempt to park the fourth vehicle again
+        parkingLot.parkVehicle(vehicle4);
+
+        // Display final parking lot status
+        parkingLot.displayStatus();
     }
 }
