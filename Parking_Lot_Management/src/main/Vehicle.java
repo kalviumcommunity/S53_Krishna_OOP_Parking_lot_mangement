@@ -5,7 +5,7 @@ public class Vehicle {
     private static int totalVehicles = 0;
 
     public Vehicle(String licensePlate) {
-        setLicensePlate(licensePlate);  // Using setter for validation if needed
+        setLicensePlate(licensePlate);
         totalVehicles++;
     }
 

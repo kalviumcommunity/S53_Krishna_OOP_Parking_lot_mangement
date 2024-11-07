@@ -4,9 +4,11 @@ public class ParkingSpace {
     private boolean isAvailable;
     private Vehicle currentVehicle;
     private static int parkingSpacesInUse = 0;
+    private int spaceNumber;  // Unique identifier for each parking space
 
-    public ParkingSpace() {
+    public ParkingSpace(int spaceNumber) {
         this.isAvailable = true;
+        this.spaceNumber = spaceNumber;
     }
 
     public boolean isAvailable() {
@@ -22,13 +24,19 @@ public class ParkingSpace {
     }
 
     public void freeSpace() {
-        this.currentVehicle = null;
-        this.isAvailable = true;
-        parkingSpacesInUse--;
+        if (!isAvailable) {
+            this.currentVehicle = null;
+            this.isAvailable = true;
+            parkingSpacesInUse--;
+        }
     }
 
     public Vehicle getCurrentVehicle() {
         return this.currentVehicle;
+    }
+
+    public int getSpaceNumber() {
+        return this.spaceNumber;
     }
 
     public static int getParkingSpacesInUse() {
