@@ -4,8 +4,15 @@ public class Vehicle {
     private String licensePlate;
     private static int totalVehicles = 0;
 
+    // Default constructor
+    public Vehicle() {
+        this.licensePlate = "UNKNOWN";
+        totalVehicles++;
+    }
+
+    // Parameterized constructor
     public Vehicle(String licensePlate) {
-        setLicensePlate(licensePlate);
+        this.licensePlate = licensePlate;
         totalVehicles++;
     }
 
