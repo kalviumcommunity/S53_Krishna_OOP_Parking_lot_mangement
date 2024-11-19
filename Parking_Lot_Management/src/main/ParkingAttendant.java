@@ -1,31 +1,29 @@
 package Parking_Lot_Management.src.main;
 
-public class ParkingAttendant extends Employee {
+// ParkingAttendant inherits from ParkingUser
+public class ParkingAttendant extends ParkingUser {
     private String shift;
 
     // Constructor
-    public ParkingAttendant(String name, int age, String employeeId, String shift) {
-        super(name, age, employeeId); // Call Employee constructor
+    public ParkingAttendant(String name, int id, String shift) {
+        super(name, id); // Call parent constructor
         this.shift = shift;
     }
 
-    // Default constructor
-    public ParkingAttendant() {
-        super(); // Call Employee default constructor
-        this.shift = "Day";
+    // Implementation of abstract method
+    @Override
+    public String getRole() {
+        return "Parking Attendant";
     }
 
+    // Additional method
     public String getShift() {
         return shift;
     }
 
-    public void setShift(String shift) {
-        this.shift = shift;
-    }
-
     @Override
     public void displayInfo() {
-        super.displayInfo(); // Call Employee method
-        System.out.println("Shift: " + shift);
+        super.displayInfo();
+        System.out.println("Role: " + getRole() + ", Shift: " + shift);
     }
 }
