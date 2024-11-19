@@ -2,24 +2,31 @@ package Parking_Lot_Management.src.main;
 
 public class ParkingSpace {
     private boolean isAvailable;
+    private boolean isReserved; // New attribute
     private Vehicle currentVehicle;
     private int spaceNumber;
     private static int parkingSpacesInUse = 0;
 
-    // Default constructor
-    public ParkingSpace() {
-        this.isAvailable = true;
-        this.spaceNumber = -1;  // Represents an unassigned space number
-    }
-
-    // Parameterized constructor
+    // Constructor: Space number only
     public ParkingSpace(int spaceNumber) {
         this.isAvailable = true;
         this.spaceNumber = spaceNumber;
+        this.isReserved = false; // Default to non-reserved
+    }
+
+    // Constructor: Space number and reserved status
+    public ParkingSpace(int spaceNumber, boolean isReserved) {
+        this.isAvailable = true;
+        this.spaceNumber = spaceNumber;
+        this.isReserved = isReserved;
     }
 
     public boolean isAvailable() {
         return this.isAvailable;
+    }
+
+    public boolean isReserved() {
+        return this.isReserved;
     }
 
     public void assignVehicle(Vehicle vehicle) {

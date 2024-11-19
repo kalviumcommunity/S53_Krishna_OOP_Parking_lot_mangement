@@ -5,25 +5,23 @@ public class Main {
         // Create Parking Lot
         ParkingLot parkingLot = new ParkingLot(5);
 
-        // Add vehicles
-        Vehicle vehicle1 = new Vehicle("CAR001");
-        Vehicle vehicle2 = new Vehicle("BIKE002");
+        // Use constructor overloading to create parking spaces
+        ParkingSpace reservedSpace = new ParkingSpace(1, true);
+        ParkingSpace regularSpace = new ParkingSpace(2);
 
-        parkingLot.parkVehicle(vehicle1);
-        parkingLot.parkVehicle(vehicle2);
+        // Display reserved status
+        System.out.println("Space " + reservedSpace.getSpaceNumber() + " reserved: " + reservedSpace.isReserved());
+        System.out.println("Space " + regularSpace.getSpaceNumber() + " reserved: " + regularSpace.isReserved());
 
-        // Create Parking Attendant (multilevel inheritance)
-        ParkingAttendant attendant = new ParkingAttendant("John Doe", 28, "EMP123", "Night");
-        System.out.println("\nParking Attendant Details:");
-        attendant.displayInfo();
+        // Use overloaded park methods
+        Vehicle vehicle = new Vehicle("CAR001");
+        vehicle.park("CAR002", parkingLot); // Park using license plate
+        vehicle.park(vehicle, parkingLot); // Park using a Vehicle object
 
         // Display parking lot status
-        System.out.println("\nParking Lot Status:");
         parkingLot.displayStatus();
 
-        // Free parking space and display updated status
+        // Free a parking space
         parkingLot.freeParkingSpace(1);
-        System.out.println("\nUpdated Parking Lot Status:");
-        parkingLot.displayStatus();
     }
 }

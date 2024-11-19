@@ -16,6 +16,17 @@ public class Vehicle {
         totalVehicles++;
     }
 
+    // Overloaded park method: Accept license plate as input
+    public void park(String licensePlate, ParkingLot parkingLot) {
+        Vehicle vehicle = new Vehicle(licensePlate); // Create new Vehicle object
+        parkingLot.parkVehicle(vehicle);
+    }
+
+    // Overloaded park method: Accept a Vehicle object as input
+    public void park(Vehicle vehicle, ParkingLot parkingLot) {
+        parkingLot.parkVehicle(vehicle); // Directly park the provided vehicle
+    }
+
     public String getLicensePlate() {
         return this.licensePlate;
     }
