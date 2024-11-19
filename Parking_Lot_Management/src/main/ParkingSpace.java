@@ -3,9 +3,16 @@ package Parking_Lot_Management.src.main;
 public class ParkingSpace {
     private boolean isAvailable;
     private Vehicle currentVehicle;
+    private int spaceNumber;
     private static int parkingSpacesInUse = 0;
-    private int spaceNumber;  // Unique identifier for each parking space
 
+    // Default constructor
+    public ParkingSpace() {
+        this.isAvailable = true;
+        this.spaceNumber = -1;  // Represents an unassigned space number
+    }
+
+    // Parameterized constructor
     public ParkingSpace(int spaceNumber) {
         this.isAvailable = true;
         this.spaceNumber = spaceNumber;
